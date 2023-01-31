@@ -34,7 +34,7 @@ for i, row in usernames.iterrows():
 		try:
 			client.send_message(row['username'],plain_text)
 		except:
-			continue
+			pass
 			
 		while True:
 			c=datetime.now(timezone.utc)
