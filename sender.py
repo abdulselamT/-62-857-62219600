@@ -30,8 +30,12 @@ for i, row in usernames.iterrows():
 		x.to_csv('username.csv')
 		j1=pd.read_csv('username.csv')
 		print("send message ",row['username'],datetime.now(timezone.utc))
-		client.send_message(row['username'],plain_text)
-		time.sleep(5)	
+		time.sleep(5)
+		try:
+			client.send_message(row['username'],plain_text)
+		except:
+			continue
+			
 		while True:
 			c=datetime.now(timezone.utc)
 			x=c - current
